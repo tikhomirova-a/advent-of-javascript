@@ -1,0 +1,104 @@
+@keyframes shake {
+    0%, 40%, 80% {
+        transform: translateX(-4px);
+    }
+
+    20%, 60%, 100% {
+        transform: translateX(4px);
+    }
+}
+
+.container {
+    max-width: 100%;
+}
+
+.keyboard {
+    padding: 1em;
+
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 2vw;
+    line-height: 1.2em;
+}
+
+.keyboard__board {
+    padding: 4vw;
+
+    background-color: rgba(246, 246, 246, 1);
+    border-radius: 1.67em;
+}
+
+.keyboard__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.keyboard__row + .keyboard__row {
+    margin-top: 0.49em;
+}
+
+.keyboard li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.68em;
+    min-height: 2.68em;
+    padding: 0.75em 0.82em;
+
+    color: rgba(96, 193, 182, 1);
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0.041em 0.33em 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0.66em;
+}
+
+.keyboard  .utils {
+    color: rgba(134, 136, 136, 1);
+}
+
+.keyboard .three-digit {
+    min-width: 4.467em;
+}
+
+.keyboard .four-digit {
+    min-width: 5.33em;
+}
+
+.keyboard .five-digit {
+    min-width: 6.67em;
+}
+
+.shake {
+    animation: shake 0.5s infinite alternate;
+
+    transform: translateX(0);
+}
+
+@media (max-width: 767px) {
+    .keyboard__title {
+        font-size: 4vw;
+        line-height: 1.25em;
+    }
+
+    .keyboard__text {
+        font-size: 2.5vw;
+        line-height: 1.25em;
+    }
+}
+
+@media (max-width: 480px) {
+    .keyboard__title {
+        font-size: 5vw;
+    }
+
+    .keyboard__text {
+        font-size: 3.5vw;
+    }
+}
