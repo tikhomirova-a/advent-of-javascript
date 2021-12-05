@@ -8,7 +8,7 @@ for (const key of keys) {
     key.dataset.keyNumber = `key-${counter}`;
     counter ++;
 }
-console.log(keys);
+
 const onPianoKeyClick = (evt) => {
     const keyLink = evt.target.parentElement;
     if (keyLink.tagName.toLowerCase() === 'a') {

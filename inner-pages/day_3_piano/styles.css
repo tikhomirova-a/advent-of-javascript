@@ -3,7 +3,6 @@ body {
 }
 
 .piano {
-  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -23,6 +22,6 @@ body {
 }
 
 .black-keys:hover {
-  fill: #f40082;  
+  fill: #f40082;
 }
 
