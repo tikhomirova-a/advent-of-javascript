@@ -14,9 +14,27 @@ body {
     font-size: 100%;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .container {
     min-width: 320px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 15px;
+}
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
 }
