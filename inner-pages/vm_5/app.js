@@ -3,9 +3,12 @@ const screens = document.querySelectorAll('.screen');
 const timeList = document.querySelector('#timeList');
 const timeEl = document.querySelector('#time');
 const board = document.querySelector('#board');
-const LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
+const scoreWrapper = board.querySelector('#scoreWrapper');
+const finalScore = scoreWrapper.querySelector('#score');
+const resetBtn = board.querySelector('#reset');
 let time = 0;
 let score = 0;
+let timerId;
 
 startBtn.addEventListener('click', (evt) => {
     evt.preventDefault();
@@ -25,11 +28,14 @@ board.addEventListener('click', (evt) => {
         score++;
         evt.target.remove();
         createRandomCircle();
+    } else if (evt.target.classList.contains('reset')) {
+        evt.preventDefault();
+        resetGame();
     }
 })
 
 function startGame() {
-    setInterval(decreaseTime, 1000);
+    timerId = setInterval(decreaseTime, 1000);
     createRandomCircle();
     setTime(time);
 }
@@ -52,7 +58,11 @@ function setTime(value) {
 
 function finishGame() {
     timeEl.parentNode.classList.add('hide');
-    board.innerHTML = `<h1>Счет: <span class="primary">${score}</span></h1>`
+    clearInterval(timerId);
+    board.lastChild.remove();
+    finalScore.textContent = score;
+    scoreWrapper.classList.remove('hide');
+    resetBtn.classList.remove('hide');
 }
 
 function createRandomCircle() {
@@ -79,4 +89,15 @@ function getRandomNumber(min, max) {
 
 function getRandomColor() {
     return `rgb(255,${getRandomNumber(0, 255)},${getRandomNumber(0, 255)})`;
+}
+
+function resetGame() {
+    time = 0;
+    score = 0;
+    for (const screen of screens) {
+        screen.classList.remove('up');
+        scoreWrapper.classList.add('hide');
+        resetBtn.classList.add('hide');
+    }
+    timeEl.parentElement.classList.remove('hide');
 }
